@@ -48,7 +48,7 @@ X, y = adult.data, adult.target
 
 1. **Explore the dataset:** Report the shape, feature names, data types, and the first few rows. How many numerical vs. categorical features are there?
 2. **Target variable:** What are the classes? What is the class distribution? Is the dataset balanced?
-3. **Missing values:** Identify columns with missing values (some may be encoded as `"?"` or `NaN`). Report the count and percentage for each. Decide on a strategy for each column (impute, drop rows, or drop column) and justify your choices.
+3. **Missing values:** Identify columns with missing values (some may be encoded as `"?"` or `NaN`). Report the count and percentage for each. Decide on a strategy for each column (drop rows or drop column) and justify your choices.
 4. **Distributions:** Create visualizations for at least 3 numerical features (histograms or box plots) and at least 3 categorical features (bar charts). Highlight any interesting patterns or outliers.
 5. **Bivariate analysis:** Explore relationships between key features and the target. For example: How does income vary by education level? By occupation? By hours worked per week?
 6. **Document your findings** in markdown cells. Write a summary paragraph at the end of Task 1 describing the dataset's key characteristics and any concerns for modeling.
@@ -58,8 +58,8 @@ X, y = adult.data, adult.target
 Build a robust preprocessing pipeline.
 
 1. **Separate features by type:** Identify which columns are numerical and which are categorical.
-2. **Numerical preprocessing:** Create a pipeline that applies imputation (e.g., median) and scaling (`StandardScaler`).
-3. **Categorical preprocessing:** Create a pipeline that applies imputation (e.g., most frequent) and encoding (`OneHotEncoder` with `handle_unknown="ignore"`).
+2. **Numerical preprocessing:** Create a pipeline that scales features (`StandardScaler`).
+3. **Categorical preprocessing:** Create a pipeline that encodes features (`OneHotEncoder` with `handle_unknown="ignore"`).
 4. **Combine with ColumnTransformer:** Build a single `ColumnTransformer` that applies the appropriate pipeline to each feature type.
 5. **Full pipeline:** Wrap the `ColumnTransformer` and a classifier into a scikit-learn `Pipeline`. Demonstrate that it works by fitting and predicting with a simple model (e.g., `LogisticRegression`).
 6. **Train/test split:** Split the data (80/20, `stratify=y`, `random_state=42`). All preprocessing must be fit on training data only.
